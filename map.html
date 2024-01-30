@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <div id="map"></div>
+
+    <div id="addMarkerForm" class="form-container">
+        <h2>Add Marker</h2>
+        <form id="markerForm" onsubmit="addMarker(event)">
+            <label for="latitude">Latitude:</label>
+            <input type="number" step="any" id="latitude" name="latitude" required>
+
+            <label for="longitude">Longitude:</label>
+            <input type="number" step="any" id="longitude" name="longitude" required>
+
+            <label for="markerName">Marker Name:</label>
+            <input type="text" id="markerName" name="markerName" required>
+
+            <div id="contactsContainer"></div>
+
+            <button type="button" onclick="addContact()">Add Contact</button>
+            <button type="submit">Add Marker</button>
+        </form>
+    </div>
+
+    <button onclick="showForm('addMarkerForm')" class="add-marker-btn">Add Marker</button>
+    <button onclick="showForm('removeMarkerForm')" class="remove-marker-btn">Remove Marker</button>
+
+    <div id="removeMarkerForm" class="form-container">
+        <h2>Remove Marker</h2>
+        <label for="removeMarkerName">Marker Name:</label>
+        <input type="text" id="removeMarkerName" name="removeMarkerName" required>
+        <button type="button" onclick="removeMarker()">Remove Marker</button>
+    </div>
+    <!-- Add this to your existing form -->
+    <label for="removeContactMarkerName">Marker Name:</label>
+    <input type="text" id="removeContactMarkerName" name="removeContactMarkerName" required>
+
+    <label for="removeContactName">Contact Name:</label>
+    <input type="text" id="removeContactName" name="removeContactName" required>
+
+    <button type="button" onclick="removeContact()">Remove Contact</button>
+
+    <div id="removeContactForm" class="form-container">
+        <h2>Remove Contact</h2>
+        <button class="minimize-btn" onclick="toggleRemoveContactForm()">Minimize</button>
+        <button class="maximize-btn" onclick="toggleRemoveContactForm()">Maximize</button>
+        <form id="removeContactFormContent">
+            <!-- Add your existing remove contact form content here -->
+            <!-- ... -->
+
+            <button type="button" onclick="removeContact()">Remove Contact</button>
+        </form>
+    </div>
+
+        </form>
+    </div>
+    <!-- Add these buttons to your existing HTML -->
+<button onclick="storeMarkersInDatabase()" class="store-in-db-btn">Store in Database</button>
+<button onclick="retrieveMarkersFromDatabase()" class="retrieve-from-db-btn">Retrieve from Database</button>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
